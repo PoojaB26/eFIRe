@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">eFIRe</string>
+    <string name="geocode_key">AIzaSyASS06WAFpIRj1ZeP6JTpwAChtJWGOuCXo</string>
+    <string name="places_key">AIzaSyAea_6_Cq9H1O79EKreUSo2025hI3e-qfo</string>
 </resources>
