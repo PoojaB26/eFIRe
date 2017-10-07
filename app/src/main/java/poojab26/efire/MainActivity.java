@@ -7,9 +7,12 @@ import android.util.Log;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import poojab26.efire.Model.Geometry;
+import poojab26.efire.Model.LatLong;
 import poojab26.efire.Model.NearbyPolice;
 import poojab26.efire.Model.PoliceResult;
 import poojab26.efire.Utilities.APIClient;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     ApiInterface apiInterface;
 
     String police_station_value;
-    String offence_location_address = "Indiranagar Metro";
+    String offence_location_address = "Indiranagar Metro Station";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +45,23 @@ public class MainActivity extends AppCompatActivity {
         // Write a message to the database
 
 
-
-        loadNearbyPolice("12.978286,77.638757");
+        getLatLong(offence_location_address);
     }
 
     private void sendToFirebase(String police_station_value){
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference firRef = database.getReference("fir");
-        DatabaseReference recordRef = firRef.child("record-5");
-
+        DatabaseReference recordRef = firRef.child("record-6");
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date now = calendar.getTime();
+        java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
 
         HashMap<String, String> fields = new HashMap<>();
         fields.put(OFFENCE_TIMESTAMP, "timestamp");
         fields.put(OFFENCE_LOCATION, "location");
-        fields.put(REPORT_TIMESTAMP, "reportimestamp");
+        fields.put(REPORT_TIMESTAMP, String.valueOf(currentTimestamp));
+
         fields.put(C_NAME, "cname");
         fields.put(C_ADDRESS, "caddress");
         fields.put(A_NAME, "aname");
@@ -93,4 +98,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private void getLatLong(String offence_location_address) {
+        apiInterface = APIClient.getClient().create(ApiInterface.class);
+
+        Call<LatLong> call = apiInterface.getLatLong(offence_location_address, getString(R.string.geocode_key));
+        call.enqueue(new Callback<LatLong>() {
+            @Override
+            public void onResponse(Call<LatLong> call, Response<LatLong> response) {
+
+                Geometry geometry = response.body().getLatLongResults().get(0).getGeometry();
+                String lat = String.valueOf(geometry.getLocation_().getLat()),
+                        lng = String.valueOf(geometry.getLocation_().getLng());
+                loadNearbyPolice(lat + ", " + lng);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<LatLong> call, Throwable t) {
+                Log.d("Error", t.getMessage());
+
+
+            }
+        });
+
+    }
+
 }

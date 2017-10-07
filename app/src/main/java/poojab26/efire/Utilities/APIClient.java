@@ -21,7 +21,7 @@ public class APIClient {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://maps.googleapis.com/maps/api/place/")
+                .baseUrl("https://maps.googleapis.com/maps/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

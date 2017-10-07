@@ -1,5 +1,6 @@
 package poojab26.efire;
 
+import poojab26.efire.Model.LatLong;
 import poojab26.efire.Model.NearbyPolice;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -18,13 +19,19 @@ public interface ApiInterface {
 */
 
 
-    @GET("nearbysearch/json")
+    @GET("place/nearbysearch/json")
     Call<NearbyPolice> getNearbyPolice(
             @Query("location") String location,
             @Query("radius") int radius,
             @Query("type") String type,
             @Query("key") String key
             );
+
+    @GET("geocode/json")
+    Call<LatLong> getLatLong(
+            @Query("address") String location,
+            @Query("key") String key
+    );
 
 
 
