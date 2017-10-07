@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "937205230131",
+    "firebase_url": "https://hackathon-firebase-99.firebaseio.com",
+    "project_id": "hackathon-firebase-99",
+    "storage_bucket": "hackathon-firebase-99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937205230131:android:ce9c26f02ed917c9",
+        "android_client_info": {
+          "package_name": "com.zoodpoc.debapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937205230131-8akugh7d898rgruc1n0mkf2tbahhd0bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACQqCy8gp2sFxAzHelcEwd6bdnQ-50PrU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937205230131:android:b0a3bf11983d2b71",
+        "android_client_info": {
+          "package_name": "poojab26.efire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937205230131-cmkc7ft7s0as8p9kc0tmm69ir1jvipcp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "poojab26.efire",
+            "certificate_hash": "edd22c52d921469083e31b21c996130dd0905bda"
+          }
+        },
+        {
+          "client_id": "937205230131-8akugh7d898rgruc1n0mkf2tbahhd0bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACQqCy8gp2sFxAzHelcEwd6bdnQ-50PrU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937205230131-liikbet3vhkvc0u9fagalgnf4h89ef3t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zoodpoc.debapp"
+              }
+            },
+            {
+              "client_id": "937205230131-8akugh7d898rgruc1n0mkf2tbahhd0bv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
